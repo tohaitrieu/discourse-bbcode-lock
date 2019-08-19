@@ -21,8 +21,8 @@ export function setup(helper) {
     helper.registerPlugin(md => {
       const ruler = md.inline.bbcode.ruler;
 
-      ruler.push("hide", {
-        tag: "hide",
+      ruler.push("lock", {
+        tag: "div",
         wrap: function(token, endToken, tagInfo) {
           token.type = "div_open";
           token.tag = "div";
@@ -38,6 +38,9 @@ export function setup(helper) {
           endToken.content = "";
         }
       });
-
+     });
+  }
+  else {
   helper.addPreProcessor(text => replaceLock(text));
+  }
 }
