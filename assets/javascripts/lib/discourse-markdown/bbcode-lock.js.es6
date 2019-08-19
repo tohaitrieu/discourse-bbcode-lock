@@ -31,7 +31,7 @@ export function setup(helper) {
           token.type = "div_open";
           token.tag = "div";
           token.attrs = [
-            ["class", "hide " + tagInfo.attrs._default.trim()]
+            ["class", "lock " + tagInfo.attrs._default.trim()]
           ];
           token.content = "";
           token.nesting = 1;
