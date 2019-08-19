@@ -13,9 +13,13 @@ function replaceLock(text) {
 }
 
 export function setup(helper) {
-  helper.whiteList([
-    'div[class]'
-  ]);
+  helper.whiteList({
+    custom(tag, name, value) {
+      if (tag === "div" && name === "class") {
+        return /^lock ?[a-zA-Z0-9]+$/.exec(value);
+      }
+    }
+  });
   
   if (helper.markdownIt) {
     helper.registerPlugin(md => {
